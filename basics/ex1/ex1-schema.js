@@ -19,7 +19,7 @@ export const MOVIE_SCHEMA = {
   // TODO
 };
 
-// SAFEGUARD PROMPTS
+// SAFEGUARD PROMPTS [DO NOT TOUCH]
 export const CLASSIFY_PROMPT = `Classify the following question into one of these categories: "recipe", "travel", "movie", or "other". Return ONLY the category string.`;
 
 export const RECIPE_PROMPT = `You are an API that returns popular cooking recipes in JSON format. Respond strictly in JSON according to the given schema.`;

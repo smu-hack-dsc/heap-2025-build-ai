@@ -90,21 +90,7 @@ async function getRandomJoke() {
 //   },
 
 const functionDeclarations = [
-  {
-    name: "get_current_temperature",
-    description: "Gets the current temperature for a given location.",
-    parameters: GEMINI_WEATHER_SCHEMA,
-  },
-  {
-    name: "get_exchange_rate",
-    description: "Gets the exchange rate from one currency to another.",
-    parameters: GEMINI_EXCHANGE_SCHEMA,
-  },
-  {
-    name: "get_random_joke",
-    description: "Gets a random joke.",
-    parameters: GEMINI_JOKE_SCHEMA,
-  },
+  // TODO 
 ];
 
 // Part 2: Dispatcher

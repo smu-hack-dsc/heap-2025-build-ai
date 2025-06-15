@@ -22,6 +22,7 @@ if (!process.env.API_KEY) {
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
+// [DO NOT TOUCH]
 async function classifyQuestion(question) {
   const response = await ai.models.generateContent({
     model: "gemini-2.0-flash",
@@ -29,7 +30,7 @@ async function classifyQuestion(question) {
   });
   return response.text.trim().toLowerCase();
 }
-
+// [DO NOT TOUCH]
 async function generateStructuredResponse(prompt, schema, question) {
   const response = await ai.models.generateContent({
     model: "gemini-2.0-flash",
