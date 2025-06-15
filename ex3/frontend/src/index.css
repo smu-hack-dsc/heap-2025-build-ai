@@ -1,0 +1,38 @@
+/* YOU DO NOT NEED TO TOUCH THIS FILE */
+
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer utilities {
+    .chat-input-container {
+      @apply fixed bottom-6 left-1/2 -translate-x-1/2
+        dark:bg-[#303030]
+        overflow-y-auto 
+        dark:border dark:border-[#424242] dark:border-solid rounded-xl
+        w-[300px] sm:w-[300px] md:w-[600px] lg:w-[800px] max-h-[150px]
+        z-999;
+    }
+
+    .chat-input {
+    @apply w-full text-sm dark:bg-[#2e2e2e] bg-gray-100 dark:text-white text-gray-800 
+      p-3 rounded-lg border border-transparent
+      focus:outline-none focus:ring-0
+      resize-none overflow-hidden min-h-[80px] max-h-[300px];
+  }
+
+    .chat-width {
+      @apply w-[300px] sm:w-[300px] md:w-[600px] lg:w-[830px] 
+    }
+    
+    .chat-container-user {
+      @apply inline-block py-2 px-4 text-sm
+        dark:bg-[#2e2e2e] bg-gray-200 rounded-3xl
+        self-end text-right 
+    }
+
+    .chat-container-gemini {
+      @apply text-sm
+
+        self-end text-left
+    }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gemini Image Generator</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin: 50px; }
+    input, button { padding: 12px; font-size: 1rem; margin: 8px; }
+    img { max-width: 90%; margin-top: 20px; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.2); }
+  </style>
+</head>
+<body>
+  <h1>Gemini Image Generator</h1>
+  <input type="text" id="promptInput" placeholder="Describe your image..." />
+  <button onclick="generateImage()">Generate Image</button>
+
+  <div id="result"></div>
+
+  <script>
+    async function generateImage() {
+      const prompt = document.getElementById("promptInput").value;
+      if (!prompt) return alert("Please enter a prompt!");
+
+      document.getElementById("result").innerHTML = "<p>Generating image...</p>";
+
+      const response = await fetch("/generate-image", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        document.getElementById("result").innerHTML = `
+          <h3>Result:</h3>
+          <img src="/generated-image.png" alt="Generated Image" />
+        `;
+      } else {
+        document.getElementById("result").innerHTML = "<p>Error generating image.</p>";
+      }
+    }
+  </script>
+</body>
+</html>

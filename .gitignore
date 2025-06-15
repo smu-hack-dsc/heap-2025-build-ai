@@ -1,0 +1,90 @@
+# Node.js / JavaScript / TypeScript
+node_modules/
+dist/
+build/
+.env
+.env.local
+.cache/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.vscode/
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.idea/
+
+# MacOS
+.DS_Store
+
+# Logs
+logs
+*.log
+log/
+
+# OS generated
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# IDE configs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Compiled source #
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Package distribution
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Misc
+*.swp
+*~
+
+# GitHub Actions
+.github/workflows/*.log
+.github/workflows/node_modules/
+.github/workflows/dist/
+
+# Docker
+*.pid
+docker-compose.override.yml
+
+# Next.js / Vite / other modern JS tools
+.next/
+out/
+.cache/
+bun.lockb
+
+# Redis / Database files
+dump.rdb
+*.sqlite3
+
+# Visual Studio Code
+.vscode/
