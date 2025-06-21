@@ -4,19 +4,44 @@ import { Type } from "@google/genai";
 export const RECIPE_SCHEMA = {
   type: Type.OBJECT,
   properties: {
-    // TODO
+    recipeName: { type: Type.STRING },
+    ingredients: {
+      type: Type.ARRAY,
+      items: { type: Type.STRING },
+    },
+    instructions: {
+      type: Type.ARRAY,
+      items: { type: Type.STRING },
+    },
   },
   propertyOrdering: ["recipeName", "ingredients", "instructions"],
 };
 
 // TRAVEL SCHEMA
 export const TRAVEL_SCHEMA = {
-  // TODO
+  type: Type.OBJECT,
+  properties: {
+    country: { type: Type.STRING },
+    topDestinations: {
+      type: Type.ARRAY,
+      items: { type: Type.STRING },
+    },
+  },
+  propertyOrdering: ["country", "topDestinations"],
 };
 
 // MOVIE SCHEMA
 export const MOVIE_SCHEMA = {
-  // TODO
+  type: Type.OBJECT,
+  properties: {
+    movieTitle: { type: Type.STRING },
+    releaseYear: { type: Type.NUMBER },
+    mainCast: {
+      type: Type.ARRAY,
+      items: { type: Type.STRING },
+    },
+  },
+  propertyOrdering: ["movieTitle", "releaseYear", "mainCast"],
 };
 
 // SAFEGUARD PROMPTS [DO NOT TOUCH]

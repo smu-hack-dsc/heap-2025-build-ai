@@ -41,6 +41,7 @@ app.use(morgan('dev'));
 // Exercise 3 part 1b
 // Mount the chatRouter on the /api/v1 route prefix so that all routes inside chatRouter are accessible under /api/v1.
 // TODO
+app.use('/api/v1', chatRouter);
 app.use('/api/health', healthRouter);
 
 app.listen(config.port, () => {

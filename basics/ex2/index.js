@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import readline from "node:readline/promises";
 import { GoogleGenAI } from "@google/genai";
 import { stdin as input, stdout as output } from "node:process";
-import { GEMINI_WEATHER_SCHEMA, GEMINI_EXCHANGE_SCHEMA,  GEMINI_JOKE_SCHEMA } from "./ex2-schema.js";
+import { GEMINI_WEATHER_SCHEMA, GEMINI_EXCHANGE_SCHEMA, GEMINI_JOKE_SCHEMA } from "./ex2-schema.js";
 
 const ENVIRONMENT_FILENAME = "../.env.local";
 dotenv.config({ path: ENVIRONMENT_FILENAME });
@@ -90,18 +90,39 @@ async function getRandomJoke() {
 //   },
 
 const functionDeclarations = [
-  // TODO 
+  {
+    name: "get_current_temperature",
+    description: "Gets the current temperature for a given location.",
+    parameters: GEMINI_WEATHER_SCHEMA,
+  },
+  {
+    name: "get_exchange_rate",
+    description: "Gets the exchange rate from one currency to another.",
+    parameters: GEMINI_EXCHANGE_SCHEMA,
+  },
+  {
+    name: "get_random_joke",
+    description: "Gets a random joke.",
+    parameters: GEMINI_JOKE_SCHEMA,
+  },
 ];
 
 // Part 2: Dispatcher
 async function dispatchFunctionCall(name, args) {
   switch (name) {
     case "get_current_temperature":
-     // TODO
+      const temperature = await getTemperature(args.location);
+      return temperature
+        ? `Current temperature in ${args.location} is ${temperature}°C.`
+        : `Couldn't fetch temperature for ${args.location}.`;
     case "get_exchange_rate":
-     // TODO
+      const rate = await getExchangeRate(args.fromCurrency, args.toCurrency);
+      return rate
+        ? `Current exchange rate from ${args.fromCurrency} to ${args.toCurrency} is ${rate}.`
+        : `Couldn't fetch exchange rate for ${args.fromCurrency} to ${args.toCurrency}.`;
     case "get_random_joke":
-     // TODO
+      const joke = await getRandomJoke();
+      return joke ? joke : "Couldn't fetch a joke right now.";
     default:
       return "Unknown function call.";
   }

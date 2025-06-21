@@ -19,6 +19,18 @@ export const geminiChatCompletion = async (message) => {
     //   }
     // );
     // console.log(response.data);
+    const response = await axios.post(
+      `${import.meta.env.VITE_API_URL}/api/v1/gemini-chat`,
+      {
+        userPrompt: message
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error('Error fetching issues', error);

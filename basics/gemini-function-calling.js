@@ -65,11 +65,6 @@ async function resolveWeather(location) {
 async function main() {
 
     // Get user input
-    console.log("Welcome to Gemini Weather Bot!");
-    console.log("Example queries:");
-    console.log("- What's the current temperature in London?");
-    console.log("- Is it hot in Tokyo?");
-    console.log("- Weather in Singapore now?\n");
     const rl = readline.createInterface({ input, output });
     const userInput = await rl.question("Ask Gemini something: ");
     rl.close();

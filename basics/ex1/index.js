@@ -54,7 +54,17 @@ async function main() {
   let result;
 
   switch (category) {
-    // TODO
+    case "recipe":
+      result = await generateStructuredResponse(RECIPE_PROMPT, RECIPE_SCHEMA, userInput);
+      break;
+    case "travel":
+      result = await generateStructuredResponse(TRAVEL_PROMPT, TRAVEL_SCHEMA, userInput);
+      break;
+    case "movie":
+      result = await generateStructuredResponse(MOVIE_PROMPT, MOVIE_SCHEMA, userInput);
+      break;
+    default:
+      result = "{}";
   }
 
   console.log("\n📦 JSON Output:\n");
