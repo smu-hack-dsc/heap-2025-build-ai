@@ -40,8 +40,10 @@ app.post("/generate-image", async (req, res) => {
         console.log("Image saved as public/generated-image.png");
       }
     }
-
-    res.json({ success: true });
+    res.json({
+      success: true,
+      imageUrl: `http://localhost:${PORT}/generated-image.png`
+    });
   } catch (error) {
     console.error("Error generating image:", error.message);
     res.status(500).json({ success: false, message: "Failed to generate image." });
